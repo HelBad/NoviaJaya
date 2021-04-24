@@ -7,7 +7,7 @@
     <item
         android:id="@+id/produk"
         android:title="Produk"
-        android:icon="@drawable/icon_tambah_produk" />
+        android:icon="@drawable/icon_addproduct" />
     <item
         android:id="@+id/akun"
         android:title="Akun"

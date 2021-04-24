@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.noviajaya.R
-import com.example.noviajaya.admin.akun.FragmentAkun
+import com.example.noviajaya.akun.FragmentAkun
 import com.example.noviajaya.admin.beranda.FragmentBeranda
 import com.example.noviajaya.admin.produk.FragmentProduk
 import com.google.android.material.bottomnavigation.BottomNavigationView

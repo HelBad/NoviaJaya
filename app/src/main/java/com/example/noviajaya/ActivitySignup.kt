@@ -29,6 +29,7 @@ class ActivitySignup : AppCompatActivity() {
     lateinit var textAlamat: EditText
     lateinit var textTelp: EditText
     lateinit var textLevel: TextView
+    lateinit var textimgAkun: TextView
     lateinit var imgAkun: ImageView
     lateinit var btnSignup: Button
     lateinit var databaseReference: DatabaseReference
@@ -54,6 +55,7 @@ class ActivitySignup : AppCompatActivity() {
         textAlamat = findViewById(R.id.textAlamat)
         textTelp = findViewById(R.id.textTelp)
         textLevel = findViewById(R.id.textLevel)
+        textimgAkun = findViewById(R.id.textimgAkun)
         imgAkun = findViewById(R.id.imgAkun)
         btnSignup = findViewById(R.id.btnSignup)
 
@@ -92,9 +94,6 @@ class ActivitySignup : AppCompatActivity() {
         btnSignup.setOnClickListener(object: View.OnClickListener {
             override fun onClick(view: View) {
                 addData()
-                val intent = Intent(this@ActivitySignup, ActivitySignin::class.java)
-                startActivity(intent)
-                finish()
             }
         })
 
@@ -111,13 +110,14 @@ class ActivitySignup : AppCompatActivity() {
         if(resultCode == RESULT_OK) {
             if(requestCode == 0) {
                 uri = data!!.data!!
-                var mStorage = storageReference.child(uri.lastPathSegment!!)
+                var mStorage = storageReference.child(id_user.toString())
                 try {
                     mStorage.putFile(uri).addOnFailureListener {}.addOnSuccessListener {
-                            taskSnapshot -> mStorage.downloadUrl.addOnCompleteListener { taskSnapshot ->
+                    mStorage.downloadUrl.addOnCompleteListener { taskSnapshot ->
                         url = taskSnapshot.result
                         val bitmap = BitmapDrawable(MediaStore.Images.Media.getBitmap(contentResolver, uri))
                         imgAkun.setImageDrawable(bitmap)
+                        textimgAkun.text = url.toString()
                         Toast.makeText(this, "Foto berhasil di unggah", Toast.LENGTH_SHORT).show()
                     }}
                 } catch(ex:Exception) {
@@ -137,7 +137,7 @@ class ActivitySignup : AppCompatActivity() {
         val alamat = textAlamat.text.toString().trim()
         val telp = textTelp.text.toString().trim()
         val level = textLevel.text.toString().trim()
-        val foto = url.toString().trim()
+        val foto = textimgAkun.text.toString().trim()
 
         if(!TextUtils.isEmpty(nama) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)
             && !TextUtils.isEmpty(jenis_kelamin) && !TextUtils.isEmpty(tanggal_lahir) && !TextUtils.isEmpty(alamat)
@@ -145,8 +145,9 @@ class ActivitySignup : AppCompatActivity() {
             val add = Akun(id, nama, email, username, password, jenis_kelamin, tanggal_lahir, alamat, telp, level, foto)
             databaseReference.child(id_user.toString()).setValue(add)
             Toast.makeText(this@ActivitySignup, "Data Terkirim", Toast.LENGTH_LONG).show()
+            finish()
         } else {
-            Toast.makeText(this@ActivitySignup, "Data Masih Kosong", Toast.LENGTH_LONG).show()
+            Toast.makeText(this@ActivitySignup, "Lengkapi Data", Toast.LENGTH_LONG).show()
         }
     }
 }

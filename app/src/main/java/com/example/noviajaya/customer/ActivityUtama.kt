@@ -7,7 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.noviajaya.R
 import com.example.noviajaya.customer.aktivitas.FragmentAktivitas
-import com.example.noviajaya.customer.akun.FragmentAkun
+import com.example.noviajaya.akun.FragmentAkun
 import com.example.noviajaya.customer.beranda.FragmentBeranda
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.customer_activity_utama.*

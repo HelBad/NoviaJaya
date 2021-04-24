@@ -68,7 +68,7 @@
             android:layout_marginHorizontal="30dp"
             android:layout_gravity="center"
             android:background="@drawable/btn_signin"
-            android:backgroundTint="@color/colorAccent"
+            android:backgroundTint="@color/colorOrange"
             android:text="MASUK"
             android:textColor="@android:color/white" />
 

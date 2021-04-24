@@ -1,4 +1,4 @@
-package com.example.noviajaya.admin.akun
+package com.example.noviajaya.akun
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -77,7 +77,7 @@ class FragmentAkun : Fragment() {
 
         lihatAkun.setOnClickListener {
             val intent = Intent(activity, ActivityProfil::class.java)
-            intent.putExtra("username", telpAkun.text.toString())
+            intent.putExtra("username", usernameAkun.text.toString())
             startActivity(intent)
         }
 

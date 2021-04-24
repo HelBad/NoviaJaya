@@ -34,6 +34,12 @@
                     android:src="@drawable/icon_addphoto"/>
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:id="@+id/textimgAkun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -121,7 +127,7 @@
                     android:paddingLeft="60dp"
                     android:paddingBottom="5dp"
                     android:hint="Masukkan Jenis Kelamin"
-                    android:background="@drawable/box_jeniskelamin"/>
+                    android:background="@drawable/box_gender"/>
 
                 <Spinner
                     android:id="@+id/spinnerJenisKelamin"
@@ -148,7 +154,7 @@
                     android:paddingLeft="60dp"
                     android:paddingBottom="5dp"
                     android:hint="Masukkan Tanggal Lahir"
-                    android:background="@drawable/box_tanggallahir"/>
+                    android:background="@drawable/box_tgllahir"/>
             </LinearLayout>
 
             <LinearLayout
@@ -212,7 +218,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
-                android:backgroundTint="@color/colorAccent"
+                android:backgroundTint="@color/colorOrange"
                 android:text="DAFTAR"
                 android:textColor="@android:color/white" />
         </LinearLayout>
