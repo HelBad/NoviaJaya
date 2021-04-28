@@ -33,7 +33,7 @@ class FragmentAkun : Fragment() {
     lateinit var btnSignout: Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.admin_fragment_akun, container, false)
+        return inflater.inflate(R.layout.fragment_akun, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

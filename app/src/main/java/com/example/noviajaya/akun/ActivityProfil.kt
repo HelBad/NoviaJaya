@@ -44,7 +44,7 @@ class ActivityProfil : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.admin_activity_profil)
+        setContentView(R.layout.activity_profil)
 
         fotoProfil = findViewById(R.id.fotoProfil)
         fototextProfil = findViewById(R.id.fototextProfil)

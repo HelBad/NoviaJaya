@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".customer.beranda.FragmentBeranda">
     <androidx.appcompat.widget.Toolbar
         app:title="Beranda"
@@ -15,4 +16,31 @@
         android:minHeight="?attr/actionBarSize">
     </androidx.appcompat.widget.Toolbar>
 
-</FrameLayout>
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/imgSlider"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:placeholder="@drawable/sampel1"
+        app:error_image="@drawable/sampel1"
+        app:auto_cycle="true"
+        app:delay="0"
+        app:period="3000"
+        app:corner_radius="5">
+    </com.denzcoskun.imageslider.ImageSlider>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:background="@drawable/tool_gradasi" >
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
