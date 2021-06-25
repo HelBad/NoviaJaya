@@ -2,21 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.noviajaya">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".akun.ActivityProfil" />
-        <activity android:name=".customer.aktivitas.ActivityRiwayat" />
-        <activity android:name=".admin.beranda.ActivityUlasan" />
-        <activity android:name=".ActivitySignup" />
-        <activity android:name=".admin.ActivityUtama" />
-        <activity android:name=".customer.ActivityUtama" />
+        <activity android:name=".customer.beranda.ActivityCheckout"></activity>
         <activity android:name=".ActivitySignin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ActivitySignup" />
+        <activity android:name=".admin.ActivityUtama" />
+        <activity android:name=".customer.ActivityUtama" />
+        <activity android:name=".customer.beranda.ActivityKontak" />
+        <activity android:name=".customer.beranda.ActivityPesanan" />
+        <activity android:name=".customer.aktivitas.ActivityRiwayat" />
+        <activity android:name=".akun.ActivityProfil" />
     </application>
 
 </manifest>

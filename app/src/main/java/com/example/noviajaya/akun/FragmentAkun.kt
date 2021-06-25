@@ -13,7 +13,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.example.noviajaya.ActivitySignin
 import com.example.noviajaya.R
-import com.example.noviajaya.model.Akun
+import com.example.noviajaya.model.User
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 
@@ -59,7 +59,7 @@ class FragmentAkun : Fragment() {
             override fun onDataChange(datasnapshot: DataSnapshot) {
                 if (datasnapshot != null) {
                     for (snapshot1 in datasnapshot.children) {
-                        val allocation = snapshot1.getValue(Akun::class.java)
+                        val allocation = snapshot1.getValue(User::class.java)
                         namaAkun.text = allocation!!.nama
                         emailAkun.text = allocation.email
                         usernameAkun.text = allocation.username

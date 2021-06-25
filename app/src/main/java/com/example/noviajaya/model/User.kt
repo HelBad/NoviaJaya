@@ -1,7 +1,7 @@
 package com.example.noviajaya.model
 
-class Akun {
-    lateinit var id:String
+class User {
+    lateinit var id_user:String
     lateinit var nama:String
     lateinit var email:String
     lateinit var username:String
@@ -14,9 +14,9 @@ class Akun {
     lateinit var foto:String
 
     constructor() {}
-    constructor(id:String, nama:String, email:String, username:String, password:String, jenis_kelamin:String,
+    constructor(id_user:String, nama:String, email:String, username:String, password:String, jenis_kelamin:String,
                 tanggal_lahir:String, alamat:String, telp:String, level:String, foto:String) {
-        this.id = id
+        this.id_user = id_user
         this.nama = nama
         this.email = email
         this.username = username

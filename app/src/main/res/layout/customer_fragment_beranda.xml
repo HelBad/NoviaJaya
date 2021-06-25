@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,6 +20,7 @@
         android:id="@+id/imgSlider"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_below="@id/toolbarBeranda"
         app:placeholder="@drawable/sampel1"
         app:error_image="@drawable/sampel1"
         app:auto_cycle="true"
@@ -28,19 +29,16 @@
         app:corner_radius="5">
     </com.denzcoskun.imageslider.ImageSlider>
 
-    <ScrollView
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_below="@id/imgSlider"
+        android:background="@drawable/tool_gradasi" >
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerBeranda"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:background="@drawable/tool_gradasi" >
-            </RelativeLayout>
-        </RelativeLayout>
-    </ScrollView>
-
-</LinearLayout>
+        android:layout_below="@id/imgSlider"/>
+</RelativeLayout>

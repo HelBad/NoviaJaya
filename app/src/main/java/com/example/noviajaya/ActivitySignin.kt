@@ -10,7 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.example.noviajaya.model.Akun
+import com.example.noviajaya.model.User
 import com.google.firebase.database.*
 
 class ActivitySignin : AppCompatActivity(), View.OnClickListener {
@@ -51,7 +51,7 @@ class ActivitySignin : AppCompatActivity(), View.OnClickListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
                     for (user in dataSnapshot.children) {
-                        val usersBean = user.getValue(Akun::class.java)
+                        val usersBean = user.getValue(User::class.java)
                         if (usersBean!!.password == textPassword.text.toString().trim()) {
                             if(usersBean.level == "admin") {
                                 Toast.makeText(this@ActivitySignin, "Masuk sebagai Admin", Toast.LENGTH_LONG).show()

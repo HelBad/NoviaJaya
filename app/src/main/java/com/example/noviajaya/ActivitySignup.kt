@@ -1,5 +1,6 @@
 package com.example.noviajaya
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
@@ -10,8 +11,7 @@ import android.provider.MediaStore
 import android.text.TextUtils
 import android.view.View
 import android.widget.*
-import androidx.annotation.NonNull
-import com.example.noviajaya.model.Akun
+import com.example.noviajaya.model.User
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -38,6 +38,8 @@ class ActivitySignup : AppCompatActivity() {
     var id_user = 0
     lateinit var uri: Uri
     var url: Uri? = null
+
+    @SuppressLint("NewApi")
     var formatTanggal = SimpleDateFormat("dd MMM YYYY")
     val kalender = Calendar.getInstance()
 
@@ -127,7 +129,7 @@ class ActivitySignup : AppCompatActivity() {
     }
 
     private fun addData() {
-        val id = id_user.toString().trim()
+        val id_user = id_user.toString().trim()
         val nama = textNama.text.toString().trim()
         val email = textEmail.text.toString().trim()
         val username = textUsername.text.toString().trim()
@@ -142,8 +144,8 @@ class ActivitySignup : AppCompatActivity() {
         if(!TextUtils.isEmpty(nama) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)
             && !TextUtils.isEmpty(jenis_kelamin) && !TextUtils.isEmpty(tanggal_lahir) && !TextUtils.isEmpty(alamat)
             && !TextUtils.isEmpty(telp) && !TextUtils.isEmpty(level) && !TextUtils.isEmpty(foto)) {
-            val add = Akun(id, nama, email, username, password, jenis_kelamin, tanggal_lahir, alamat, telp, level, foto)
-            databaseReference.child(id_user.toString()).setValue(add)
+            val add = User(id_user, nama, email, username, password, jenis_kelamin, tanggal_lahir, alamat, telp, level, foto)
+            databaseReference.child(id_user).setValue(add)
             Toast.makeText(this@ActivitySignup, "Data Terkirim", Toast.LENGTH_LONG).show()
             finish()
         } else {

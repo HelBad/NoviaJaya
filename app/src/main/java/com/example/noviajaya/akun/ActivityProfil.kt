@@ -1,5 +1,6 @@
 package com.example.noviajaya.akun
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
@@ -11,7 +12,7 @@ import android.text.Editable
 import android.text.TextUtils
 import android.widget.*
 import com.example.noviajaya.R
-import com.example.noviajaya.model.Akun
+import com.example.noviajaya.model.User
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -39,6 +40,7 @@ class ActivityProfil : AppCompatActivity() {
     var url: Uri? = null
     lateinit var storageReference: StorageReference
 
+    @SuppressLint("NewApi")
     var formateDate = SimpleDateFormat("dd MMM YYYY")
     val date = Calendar.getInstance()
 
@@ -83,10 +85,10 @@ class ActivityProfil : AppCompatActivity() {
             override fun onDataChange(datasnapshot: DataSnapshot) {
                 if (datasnapshot != null) {
                     for (snapshot1 in datasnapshot.children) {
-                        val allocation = snapshot1.getValue(Akun::class.java)
+                        val allocation = snapshot1.getValue(User::class.java)
                         Picasso.get().load(allocation!!.foto).into(fotoProfil)
                         fototextProfil.text = allocation.foto
-                        idProfil.text = allocation.id
+                        idProfil.text = allocation.id_user
                         namaProfil.text = Editable.Factory.getInstance().newEditable(allocation.nama)
                         usernameProfil.text = Editable.Factory.getInstance().newEditable(allocation.username)
                         emailProfil.text = Editable.Factory.getInstance().newEditable(allocation.email)
@@ -132,7 +134,7 @@ class ActivityProfil : AppCompatActivity() {
     }
 
     private fun addData() {
-        val id = idProfil.text.toString().trim()
+        val id_user = idProfil.text.toString().trim()
         val nama = namaProfil.text.toString().trim()
         val email = emailProfil.text.toString().trim()
         val username = usernameProfil.text.toString().trim()
@@ -147,8 +149,8 @@ class ActivityProfil : AppCompatActivity() {
         if(!TextUtils.isEmpty(nama) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)
                 && !TextUtils.isEmpty(jenis_kelamin) && !TextUtils.isEmpty(tanggal_lahir) && !TextUtils.isEmpty(alamat)
                 && !TextUtils.isEmpty(telp) && !TextUtils.isEmpty(level) && !TextUtils.isEmpty(foto)) {
-            val add = Akun(id, nama, email, username, password, jenis_kelamin, tanggal_lahir, alamat, telp, level, foto)
-            databaseReference.child("Pengguna").child(id).setValue(add)
+            val add = User(id_user, nama, email, username, password, jenis_kelamin, tanggal_lahir, alamat, telp, level, foto)
+            databaseReference.child("Pengguna").child(id_user).setValue(add)
             Toast.makeText(this@ActivityProfil, "Data Terkirim", Toast.LENGTH_LONG).show()
             finish()
         } else {
