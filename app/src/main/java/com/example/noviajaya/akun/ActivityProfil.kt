@@ -62,7 +62,7 @@ class ActivityProfil : AppCompatActivity() {
         levelProfil = findViewById(R.id.levelProfil)
         btnProfil = findViewById(R.id.btnProfil)
 
-        storageReference = FirebaseStorage.getInstance().getReference("Pengguna")
+        storageReference = FirebaseStorage.getInstance().getReference("User")
         fotoProfil.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "image/*"
@@ -80,7 +80,7 @@ class ActivityProfil : AppCompatActivity() {
         }
 
         databaseReference = FirebaseDatabase.getInstance().reference
-        val query = databaseReference.child("Pengguna").orderByChild("username").equalTo(intent.getStringExtra("username"))
+        val query = databaseReference.child("User").orderByChild("username").equalTo(intent.getStringExtra("username"))
         query.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(datasnapshot: DataSnapshot) {
                 if (datasnapshot != null) {
@@ -150,7 +150,7 @@ class ActivityProfil : AppCompatActivity() {
                 && !TextUtils.isEmpty(jenis_kelamin) && !TextUtils.isEmpty(tanggal_lahir) && !TextUtils.isEmpty(alamat)
                 && !TextUtils.isEmpty(telp) && !TextUtils.isEmpty(level) && !TextUtils.isEmpty(foto)) {
             val add = User(id_user, nama, email, username, password, jenis_kelamin, tanggal_lahir, alamat, telp, level, foto)
-            databaseReference.child("Pengguna").child(id_user).setValue(add)
+            databaseReference.child("User").child(id_user).setValue(add)
             Toast.makeText(this@ActivityProfil, "Data Terkirim", Toast.LENGTH_LONG).show()
             finish()
         } else {

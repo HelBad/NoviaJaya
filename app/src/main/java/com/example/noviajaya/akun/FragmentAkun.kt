@@ -1,5 +1,6 @@
 package com.example.noviajaya.akun
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -36,6 +37,7 @@ class FragmentAkun : Fragment() {
         return inflater.inflate(R.layout.fragment_akun, container, false)
     }
 
+    @SuppressLint("UseRequireInsteadOfGet")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -53,7 +55,7 @@ class FragmentAkun : Fragment() {
         btnSignout = view!!.findViewById<View>(R.id.btnSignout) as Button
 
         databaseReference = FirebaseDatabase.getInstance().reference
-        val query = databaseReference.child("Pengguna").orderByChild("username")
+        val query = databaseReference.child("User").orderByChild("username")
             .equalTo(activity!!.intent.getStringExtra("username"))
         query.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(datasnapshot: DataSnapshot) {

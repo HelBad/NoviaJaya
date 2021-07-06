@@ -46,7 +46,7 @@ class ActivitySignin : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun signinAkun() {
-        val query = databaseReference.child("Pengguna").orderByChild("username").equalTo(textUsername.text.toString().trim())
+        val query = databaseReference.child("User").orderByChild("username").equalTo(textUsername.text.toString().trim())
         query.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {

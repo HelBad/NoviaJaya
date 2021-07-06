@@ -83,7 +83,7 @@ class ActivitySignup : AppCompatActivity() {
             tanggalLahir.show()
         }
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Pengguna")
+        databaseReference = FirebaseDatabase.getInstance().getReference("User")
         databaseReference.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()) {
@@ -99,7 +99,7 @@ class ActivitySignup : AppCompatActivity() {
             }
         })
 
-        storageReference = FirebaseStorage.getInstance().getReference("Pengguna")
+        storageReference = FirebaseStorage.getInstance().getReference("User")
         imgAkun.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"

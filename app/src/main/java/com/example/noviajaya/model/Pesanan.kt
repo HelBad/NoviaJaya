@@ -3,21 +3,25 @@ package com.example.noviajaya.model
 class Pesanan {
     lateinit var id_pesanan:String
     lateinit var id_user:String
+    lateinit var id_produk:String
+    lateinit var waktu:String
     lateinit var tanggal:String
     lateinit var lokasi:String
-    lateinit var total_pembayaran:String
-    lateinit var status_pembayaran:String
-    lateinit var status_pesanan:String
+    lateinit var jumlah:String
+    lateinit var total:String
+    lateinit var status:String
 
     constructor() {}
-    constructor(id_pesanan:String, id_user:String, tanggal:String, lokasi:String, total_pembayaran:String,
-                status_pembayaran:String, status_pesanan:String) {
+    constructor(id_pesanan:String, id_user:String, id_produk:String, waktu:String, tanggal:String,
+                lokasi:String, jumlah:String, total:String, status:String) {
         this.id_pesanan = id_pesanan
         this.id_user = id_user
+        this.id_produk = id_produk
+        this.waktu = waktu
         this.tanggal = tanggal
         this.lokasi = lokasi
-        this.total_pembayaran = total_pembayaran
-        this.status_pembayaran = status_pembayaran
-        this.status_pesanan = status_pesanan
+        this.jumlah = jumlah
+        this.total = total
+        this.status = status
     }
 }
