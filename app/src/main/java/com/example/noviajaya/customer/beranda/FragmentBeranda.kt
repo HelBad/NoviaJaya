@@ -1,5 +1,6 @@
 package com.example.noviajaya.customer.beranda
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -13,19 +14,24 @@ import com.denzcoskun.imageslider.models.SlideModel
 import com.example.noviajaya.R
 import com.example.noviajaya.adapter.ViewholderBeranda
 import com.example.noviajaya.model.Produk
+import com.example.noviajaya.model.User
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
 
 class FragmentBeranda : Fragment() {
     lateinit var imageSlider: com.denzcoskun.imageslider.ImageSlider
     lateinit var mRecyclerView: RecyclerView
     lateinit var mLayoutManager: LinearLayoutManager
+    lateinit var databaseReference: DatabaseReference
+    lateinit var id_user: String
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
         return inflater.inflate(R.layout.customer_fragment_beranda, container, false)
     }
 
+    @SuppressLint("UseRequireInsteadOfGet")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -43,6 +49,21 @@ class FragmentBeranda : Fragment() {
         mLayoutManager = LinearLayoutManager(requireActivity())
         mRecyclerView.setHasFixedSize(true)
         mRecyclerView.layoutManager = mLayoutManager
+
+        databaseReference = FirebaseDatabase.getInstance().reference
+        val query = databaseReference.child("User").orderByChild("username")
+            .equalTo(activity!!.intent.getStringExtra("username"))
+        query.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(datasnapshot: DataSnapshot) {
+                if (datasnapshot != null) {
+                    for (snapshot1 in datasnapshot.children) {
+                        val allocation = snapshot1.getValue(User::class.java)
+                        id_user = allocation!!.id_user
+                    }
+                }
+            }
+            override fun onCancelled(databaseError: DatabaseError) {}
+        })
     }
 
     override fun onStart() {
@@ -64,7 +85,8 @@ class FragmentBeranda : Fragment() {
                         val namaBeranda = view.findViewById(R.id.namaBeranda) as TextView
                         val namaB = namaBeranda.text.toString()
                         val intent = Intent(view.context, ActivityCheckout::class.java)
-                        intent.putExtra("nama", namaB)
+                        intent.putExtra("nama_produk", namaB)
+                        intent.putExtra("id_user", id_user)
                         startActivity(intent)
                     }
                     override fun onItemLongClick(view:View, position:Int) {

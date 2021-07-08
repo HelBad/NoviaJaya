@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.noviajaya.R
 import com.squareup.picasso.Picasso
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class ViewholderBeranda(itemView:View): RecyclerView.ViewHolder(itemView) {
     internal var mView:View
@@ -28,13 +30,14 @@ class ViewholderBeranda(itemView:View): RecyclerView.ViewHolder(itemView) {
     }
 
     fun setDetails(ctx: Context, nama:String, harga:String, deskripsi:String, gambar:String) {
+        var formatter: NumberFormat = DecimalFormat("#,###")
         val namaBeranda = mView.findViewById(R.id.namaBeranda) as TextView
         val hargaBeranda = mView.findViewById(R.id.hargaBeranda) as TextView
         val deskripsiBeranda = mView.findViewById(R.id.deskripsiBeranda) as TextView
         val gambarBeranda = mView.findViewById(R.id.gambarBeranda) as ImageView
 
         namaBeranda.text = nama
-        hargaBeranda.text = harga
+        hargaBeranda.text = "Rp. " + formatter.format(harga.toInt()) + ",00"
         deskripsiBeranda.text = deskripsi
         Picasso.get().load(gambar).into(gambarBeranda)
     }
