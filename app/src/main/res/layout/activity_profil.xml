@@ -9,7 +9,7 @@
     tools:context=".akun.ActivityProfil">
     <androidx.appcompat.widget.Toolbar
         app:title="Profil"
-        app:titleTextColor="@android:color/white"
+        app:titleTextColor="@android:color/black"
         android:id="@+id/toolbarProfil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

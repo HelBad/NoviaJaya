@@ -90,9 +90,9 @@ class ActivitySignup : AppCompatActivity() {
                     id_user = (snapshot.childrenCount.toInt())
                 }
             }
-
             override fun onCancelled(error: DatabaseError) {}
         })
+
         btnSignup.setOnClickListener(object: View.OnClickListener {
             override fun onClick(view: View) {
                 addData()

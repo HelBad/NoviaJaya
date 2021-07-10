@@ -106,11 +106,7 @@ class FragmentBeranda : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
-        if (id == R.id.pesanan) {
-            val intent = Intent(activity, ActivityPesanan::class.java)
-            startActivity(intent)
-            return true
-        } else if (id == R.id.kontak) {
+        if (id == R.id.kontak) {
             val intent = Intent(activity, ActivityKontak::class.java)
             startActivity(intent)
             return true

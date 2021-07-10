@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".customer.beranda.ActivityCheckout"></activity>
+        <activity android:name=".customer.beranda.ActivityBayar"></activity>
+        <activity android:name=".customer.beranda.ActivityCheckout" />
         <activity android:name=".ActivitySignin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +24,7 @@
         <activity android:name=".admin.ActivityUtama" />
         <activity android:name=".customer.ActivityUtama" />
         <activity android:name=".customer.beranda.ActivityKontak" />
-        <activity android:name=".customer.beranda.ActivityPesanan" />
+        <activity android:name=".customer.aktivitas.ActivityPesanan" />
         <activity android:name=".customer.aktivitas.ActivityRiwayat" />
         <activity android:name=".akun.ActivityProfil" />
     </application>

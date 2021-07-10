@@ -15,4 +15,128 @@
         android:minHeight="?attr/actionBarSize">
     </androidx.appcompat.widget.Toolbar>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarKontak"
+        android:scrollbars="none">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/textContactus"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Kontak Kami"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/textContactus"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="#dddddd"/>
+
+            <ImageView
+                android:id="@+id/logoTravel"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@id/textContactus"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:src="@drawable/logo"/>
+
+            <TextView
+                android:id="@+id/forwardKontak"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@id/logoTravel"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Forward Together"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/alamat1Kontak"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_below="@id/forwardKontak"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Dsn. Tanjungkalang RT.01/RW.03, "
+                android:textColor="@android:color/black"
+                android:textSize="17dp"/>
+
+            <TextView
+                android:id="@+id/alamat2Kontak"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_below="@id/alamat1Kontak"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Ds. Tanjungkalang, Kec. Ngronggot, "
+                android:textColor="@android:color/black"
+                android:textSize="17dp"/>
+
+            <TextView
+                android:id="@+id/alamat3Kontak"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_below="@id/alamat2Kontak"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Kab. Nganjuk, Jawa Timur 64395"
+                android:textColor="@android:color/black"
+                android:textSize="17dp"/>
+
+            <TextView
+                android:id="@+id/followKontak"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@id/alamat3Kontak"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Follow Us"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="18dp"/>
+
+            <ImageView
+                android:id="@+id/iconEmailKontak"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/followKontak"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_telp"/>
+
+            <TextView
+                android:id="@+id/emailKontak"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_below="@id/followKontak"
+                android:layout_toRightOf="@id/iconEmailKontak"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="20dp"
+                android:text="+62 857-8450-7727"
+                android:textColor="@android:color/black"
+                android:textSize="17dp"/>
+        </RelativeLayout>
+    </ScrollView>
+
 </RelativeLayout>

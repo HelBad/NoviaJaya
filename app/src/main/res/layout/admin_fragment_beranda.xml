@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".admin.beranda.FragmentBeranda">
     <androidx.appcompat.widget.Toolbar
         app:title="Beranda"
@@ -15,4 +16,54 @@
         android:minHeight="?attr/actionBarSize">
     </androidx.appcompat.widget.Toolbar>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp">
+        <RelativeLayout
+            android:id="@+id/beranda1"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/btn_konfirmasi_pesanan"
+            android:orientation="vertical" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/beranda2"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/btn_pesanan_diproses"
+            android:orientation="vertical" >
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp">
+        <RelativeLayout
+            android:id="@+id/beranda3"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/btn_pesanan_dibatalkan"
+            android:orientation="vertical" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/beranda4"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/btn_pesanan_selesai"
+            android:orientation="vertical" >
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
